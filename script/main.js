@@ -28,16 +28,20 @@ function printCurrentHour() {
 }
 
 function getCurrentDate() {
-    // Usar padSstart ou slice
     // Considerar formatos diferentes de data e hora conforme localização do usuário
     // Verificar se no Date há algum método que possa auxiliar
     // locale
-    const date = new Date();
-    return date.getDate() + "/" + (((date.getMonth() + 1) < 9) ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "/" + date.getFullYear();
+    
+    const date = new Date()
+    return formatDate(date.getDate(date)) + "/" + formatDate(date.getMonth(date) + 1) + "/" + date.getFullYear()
+}
+
+function formatDate(date) {
+    return date.toString().padStart(2,'0');
 }
 
 function getCurrentHour() {
-    return (GetHours() < 9 ? "0" + GetHours() : GetHours()) + ":" + (GetMinutes() < 9 ? "0" + GetMinutes() : GetMinutes()) + ":" + ((GetSeconds() < 9) ? "0" + GetSeconds(): GetSeconds());
+    return formatDate(GetHours()) + ":" + formatDate(GetMinutes()) + ":" + formatDate(GetSeconds());
 }
 
 function GetHours() {
