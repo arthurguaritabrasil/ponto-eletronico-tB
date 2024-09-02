@@ -3,7 +3,11 @@ const diaMesAno = document.getElementById("dia-mes-ano");
 const horaMinSeg = document.getElementById("hora-minuto-segundo");
 
 const btnBaterPonto = document.getElementById("bater-ponto");
+const confirmarDialog = document.getElementById("confirmar-dialog");
+const fecharDialogBtn = document.getElementById("fechar-dialog");
+
 btnBaterPonto.addEventListener("click",register);
+fecharDialogBtn.addEventListener("click",fechaDialog);
 
 diaSemana.textContent = getCurrentDay();
 diaMesAno.textContent = getCurrentDate();
@@ -46,13 +50,14 @@ function getCurrentHour() {
 
 function register() {
     // Abrir <dialogue> com no mínimo 4 botões
-    alert("Ponto registrado com sucesso")
+    confirmarDialog.showModal();
+}
+
+function fechaDialog() {
+    confirmarDialog.close();
 }
 
 setInterval(printCurrentHour,1000);
-
-
-
 
 /*
 function GetHours() {

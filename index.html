@@ -7,12 +7,23 @@
     <link rel="stylesheet" href="style/index.css">
 </head>
 <body>
+    <h1>Sistema de ponto eletrônico</h1>
     <div class="data-hora">
         <p id="dia-semana">Dia da semana</p>
         <p id="dia-mes-ano">Data atual</p>
-        <p id="hora-minuto-segundo">Horário atuals</p>
+        <p id="hora-minuto-segundo">Horário atual</p>
     </div>
     <button id="bater-ponto">Bater ponto</button>
+    <dialog id="confirmar-dialog">
+        <button id="fechar-dialog" class="close-btn">&times;</button>
+        <div class="butoes-dialog">
+            <p>Defina seu registro</p>
+            <button>Chegada</button>
+            <button>Início Intervalo</button>
+            <button>Fim Intervalo</button>
+            <button>Saída</button>
+        </div>
+    </dialog>
     <!-- criar historico de registros depois-->
     <!-- criar footer para alerta depois-->
     <script src="script/main.js"></script>
