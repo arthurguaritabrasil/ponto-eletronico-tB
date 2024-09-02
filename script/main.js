@@ -28,22 +28,33 @@ function printCurrentHour() {
 }
 
 function getCurrentDate() {
-    // Considerar formatos diferentes de data e hora conforme localização do usuário
-    // Verificar se no Date há algum método que possa auxiliar
-    // locale
-    
-    const date = new Date()
-    return formatDate(date.getDate(date)) + "/" + formatDate(date.getMonth(date) + 1) + "/" + date.getFullYear()
+    const date = new Date();
+    return date.toLocaleDateString();
+    //return formatDate(date.getDate(date)) + "/" + formatDate(date.getMonth(date) + 1) + "/" + date.getFullYear()
 }
 
-function formatDate(date) {
+/*function formatDateAndTime(date) {
     return date.toString().padStart(2,'0');
 }
+*/
 
 function getCurrentHour() {
-    return formatDate(GetHours()) + ":" + formatDate(GetMinutes()) + ":" + formatDate(GetSeconds());
+    const date = new Date();
+    return date.toLocaleTimeString();
+    //return formatDate(GetHours()) + ":" + formatDate(GetMinutes()) + ":" + formatDate(GetSeconds());
 }
 
+function register() {
+    // Abrir <dialogue> com no mínimo 4 botões
+    alert("Ponto registrado com sucesso")
+}
+
+setInterval(printCurrentHour,1000);
+
+
+
+
+/*
 function GetHours() {
     const date = new Date();
     return date.getHours();
@@ -58,10 +69,4 @@ function GetSeconds() {
     const date = new Date();
     return date.getSeconds();
 }
-
-function register() {
-    // Abrir <dialogue> com no mínimo 4 botões
-    alert("Ponto registrado com sucesso")
-}
-
-setInterval(printCurrentHour,1000);
+*/
