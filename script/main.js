@@ -1,17 +1,25 @@
 const diaSemana = document.getElementById("dia-semana");
 const diaMesAno = document.getElementById("dia-mes-ano");
 const horaMinSeg = document.getElementById("hora-minuto-segundo");
+const dataDialog = document.getElementById("data-dialog");
+const horaDialog = document.getElementById("hora-dialog");
 
 const btnBaterPonto = document.getElementById("bater-ponto");
 const confirmarDialog = document.getElementById("confirmar-dialog");
 const fecharDialogBtn = document.getElementById("fechar-dialog");
 
-btnBaterPonto.addEventListener("click",register);
-fecharDialogBtn.addEventListener("click",fechaDialog);
+btnBaterPonto.addEventListener("click", () => {
+    confirmarDialog.showModal();
+});
+fecharDialogBtn.addEventListener("click", () => { // funcao anonima
+    confirmarDialog.close();
+});
 
 diaSemana.textContent = getCurrentDay();
 diaMesAno.textContent = getCurrentDate();
 horaMinSeg.textContent = getCurrentHour();
+dataDialog.textContent = getCurrentDate();
+horaDialog.textContent = getCurrentHour();
 
 function getCurrentDay() {
     const date = new Date;
@@ -36,42 +44,14 @@ function getCurrentDate() {
     return date.toLocaleDateString();
     //return formatDate(date.getDate(date)) + "/" + formatDate(date.getMonth(date) + 1) + "/" + date.getFullYear()
 }
-
-/*function formatDateAndTime(date) {
-    return date.toString().padStart(2,'0');
-}
-*/
-
 function getCurrentHour() {
     const date = new Date();
     return date.toLocaleTimeString();
-    //return formatDate(GetHours()) + ":" + formatDate(GetMinutes()) + ":" + formatDate(GetSeconds());
-}
-
-function register() {
-    // Abrir <dialogue> com no mínimo 4 botões
-    confirmarDialog.showModal();
-}
-
-function fechaDialog() {
-    confirmarDialog.close();
 }
 
 setInterval(printCurrentHour,1000);
 
-/*
-function GetHours() {
-    const date = new Date();
-    return date.getHours();
-}
-
-function GetMinutes() {
-    const date = new Date();
-    return date.getMinutes();
-}
-
-function GetSeconds() {
-    const date = new Date();
-    return date.getSeconds();
+/*function formatDateAndTime(date) {
+    return date.toString().padStart(2,'0');
 }
 */
