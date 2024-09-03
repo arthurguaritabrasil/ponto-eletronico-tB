@@ -39,7 +39,7 @@ h1 {
 }
 
 #bater-ponto:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     cursor: pointer;
 }
 
@@ -80,7 +80,7 @@ dialog::backdrop {
 #fechar-dialog {
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: 10px;
     font-size: 1.2rem;
     background: none;
     border: none;
@@ -105,4 +105,15 @@ dialog::backdrop {
     border: 1px solid black;
     border-radius: 25px;
     font-weight: 600;
+}
+
+#rodape {
+    position: fixed;
+    bottom: 0px;
+    padding: 30px;
+    background-color: rgb(243, 124, 124);
+    color: white;
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
 }

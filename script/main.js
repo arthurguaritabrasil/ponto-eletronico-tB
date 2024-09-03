@@ -3,6 +3,7 @@ const diaMesAno = document.getElementById("dia-mes-ano");
 const horaMinSeg = document.getElementById("hora-minuto-segundo");
 const dataDialog = document.getElementById("data-dialog");
 const horaDialog = document.getElementById("hora-dialog");
+const localization = document.getElementById("local")
 
 const btnBaterPonto = document.getElementById("bater-ponto");
 const confirmarDialog = document.getElementById("confirmar-dialog");
@@ -18,8 +19,10 @@ fecharDialogBtn.addEventListener("click", () => { // funcao anonima
 diaSemana.textContent = getCurrentDay();
 diaMesAno.textContent = getCurrentDate();
 horaMinSeg.textContent = getCurrentHour();
-dataDialog.textContent = getCurrentDate();
-horaDialog.textContent = getCurrentHour();
+localization.textContent = "Localização: \n" + getLocalization();
+
+dataDialog.textContent = "Data: " + getCurrentDate();
+horaDialog.textContent = "Hora: " + getCurrentHour();
 
 function getCurrentDay() {
     const date = new Date;
@@ -37,6 +40,7 @@ function getCurrentDay() {
 
 function printCurrentHour() {
     horaMinSeg.textContent = getCurrentHour();
+    horaDialog.textContent = getCurrentHour();
 }
 
 function getCurrentDate() {
@@ -55,3 +59,9 @@ setInterval(printCurrentHour,1000);
     return date.toString().padStart(2,'0');
 }
 */
+function getLocalization() {
+    navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position)
+        return position.coords.latitude
+    });
+}
