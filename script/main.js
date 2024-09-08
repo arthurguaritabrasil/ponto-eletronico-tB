@@ -8,11 +8,16 @@ const localization = document.getElementById("local")
 const btnBaterPonto = document.getElementById("bater-ponto");
 const confirmarDialog = document.getElementById("confirmar-dialog");
 const fecharDialogBtn = document.getElementById("fechar-dialog");
+const connfirmarPonto = document.getElementById("btnConfirmar");
 
 btnBaterPonto.addEventListener("click", () => {
     confirmarDialog.showModal();
 });
 fecharDialogBtn.addEventListener("click", () => { // funcao anonima
+    confirmarDialog.close();
+});
+connfirmarPonto.addEventListener("click", () => {
+    alert("Ponto registrado!");
     confirmarDialog.close();
 });
 
@@ -22,7 +27,6 @@ horaMinSeg.textContent = getCurrentHour();
 localization.textContent = "Localização: \n" + getLocalization();
 
 dataDialog.textContent = "Data: " + getCurrentDate();
-horaDialog.textContent = "Hora: " + getCurrentHour();
 
 function getCurrentDay() {
     const date = new Date;
@@ -40,7 +44,7 @@ function getCurrentDay() {
 
 function printCurrentHour() {
     horaMinSeg.textContent = getCurrentHour();
-    horaDialog.textContent = getCurrentHour();
+    horaDialog.textContent = "Hora: " + getCurrentHour();
 }
 
 function getCurrentDate() {
@@ -60,8 +64,14 @@ setInterval(printCurrentHour,1000);
 }
 */
 function getLocalization() {
+    if (!navigator.geolocation) {
+        return "Não é possível obter a localização em seu navegador";
+    }
+
     navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position)
-        return position.coords.latitude
+        const { latitude, longitude } = position.coords;
+        localization.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+    }, (error) => {
+        localization.textContent = `Erro ao obter a localização: ${error.message}`
     });
 }

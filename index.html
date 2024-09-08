@@ -16,15 +16,16 @@
     </div>
     <button id="bater-ponto">Bater ponto</button>
     <dialog id="confirmar-dialog">
-        <button id="fechar-dialog" class="close-btn">&times;</button>
-        <div class="butoes-dialog">
-            <p id="data-dialog">Data atual</p>
-            <p id="hora-dialog">Hora atual</p>
-            <button>Chegada</button>
-            <button>Início Intervalo</button>
-            <button>Fim Intervalo</button>
-            <button>Fim de turno</button>
-        </div>
+        <button id="fechar-dialog">x</button>
+        <p id="data-dialog">Data atual</p>
+        <p id="hora-dialog">Hora atual</p>
+        <select id="opcoes-ponto">
+            <option value="chegada">Inicio de turno</option>
+            <option value="inicio-intervalo">Inicio do intervalo</option>
+            <option value="fim-intervalo">Fim do intervalo</option>
+            <option value="fim-de-turno">Fim de turno</option>
+        </select>
+        <button id="btnConfirmar">Confirmar ponto</button>
     </dialog>
 
     <footer id="rodape">Desenvolvido por TutugomesCebola1</footer>
