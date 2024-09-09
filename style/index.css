@@ -1,42 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/ds-digital');
+@import url('https://fonts.cdnfonts.com/css/clear-sans');
+
+:root {
+    --fonte-poppins: "Poppins", sans-serif;
+    --fonte-clear: "Clear Sans", sans-serif;
+    --fonte-hora: "DS-Digital", sans-serif;
+}
+
+/* Reset CSS e Configurações Globais */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     height: 100vh;
     gap: 40px;
     background-color: #f8f8f8;
 }
 
-h1 {
-    font-size: 40px;
-    font-weight: 700;
+/* Header */
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #dfdfdf;
+    padding: 5px 0;
 }
+
+#logoImg {
+    width: 70px;
+    transition: transform 0.3s;
+}
+
+#logoImg:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Título Principal */
+
+h1 {
+    font-size: 60px;
+    font-weight: 700;
+    font-family: var(--fonte-poppins);
+    color: black;
+    text-align: center;
+}
+
+/* Data e Hora */
 
 .data-hora {
     font-size: 2.5rem;
     text-align: center;
+    font-family: var(--fonte-clear);
 }
 
 .data-hora p {
     margin-bottom: 20px;
 }
 
+#hora-minuto-segundo {
+    font-size: 7rem;
+    font-family: var(--fonte-hora);
+    font-weight: 700;
+}
+
+/* Botão de Bater Ponto */
+
 #bater-ponto {
-    font-size: 2rem;
+    font-size: 1.7rem;
     padding: 15px 30px;
     border-radius: 10px;
     border: none;
     background-color: red;
     color: white;
     font-weight: 600;
+    align-self: center;
+    width: 15%;
     transition: transform 0.3s, background-color 0.2s;
 }
 
@@ -45,6 +93,8 @@ h1 {
     cursor: pointer;
     background-color: darkred;
 }
+
+/* Rodapé */
 
 #rodape {
     position: fixed;
@@ -58,6 +108,7 @@ h1 {
 }
 
 /* Dialog */
+
 #confirmar-dialog {
     padding: 70px 10px;
     text-align: center;
@@ -69,7 +120,7 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px; /* Define uma largura fixa */
+    width: 300px;
 }
 
 dialog::backdrop {
@@ -107,6 +158,7 @@ dialog::backdrop {
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 #btnConfirmar {
