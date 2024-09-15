@@ -4,16 +4,21 @@ import { saveRegisterInLocalStorage } from "./storageInLocal.js";
 
 export function runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPonto) {
     const btnBaterPonto = document.getElementById("bater-ponto");
+    const mensagemSucesso = document.getElementById("mensagem-sucesso");
+
     btnBaterPonto.addEventListener("click", () => {
         confirmarDialog.showModal();
+        mensagemSucesso.style.display = "none";
     });
     fecharDialogBtn.addEventListener("click", () => {
         confirmarDialog.close();
     });
-    confirmarPonto.addEventListener("click", () => criarPonto(confirmarDialog));
+    confirmarPonto.addEventListener("click", () =>  {
+        criarPonto(confirmarDialog,mensagemSucesso)}
+    );
 }
 
-function criarPonto(confirmarDialog) {
+function criarPonto(confirmarDialog, mensagemSucesso) {
     let typeRegister = document.getElementById("opcoes-ponto").value;
 
     let ponto = {
@@ -32,5 +37,10 @@ function criarPonto(confirmarDialog) {
 
     saveRegisterInLocalStorage(ponto);
     localStorage.setItem("lastTypeRegister",typeRegister);
-    confirmarDialog.close();
+
+    mensagemSucesso.style.display = "block";
+    setTimeout(() => {
+        confirmarDialog.close();
+        mensagemSucesso.style.display = "none";
+    },10000);
 }

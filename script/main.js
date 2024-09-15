@@ -1,6 +1,5 @@
 import { runEventsListeners } from "./modules/events.js";
 import { getCurrentDay, getCurrentDate, getCurrentHour, printCurrentHour } from "./modules/timeUtils.js";
-import { getRegisterLocalStorage, saveRegisterInLocalStorage } from "./modules/storageInLocal.js";
 
 const diaSemana = document.getElementById("dia-semana");
 const diaMesAno = document.getElementById("dia-mes-ano");
