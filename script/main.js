@@ -1,4 +1,4 @@
-import { runEventsListeners } from "./modules/events.js";
+import { runEventsListeners } from "./components/events.js";
 import { getCurrentDay, getCurrentDate, getCurrentHour, printCurrentHour } from "./modules/timeUtils.js";
 
 const diaSemana = document.getElementById("dia-semana");
@@ -19,3 +19,7 @@ dataDialog.textContent = "Data: " + getCurrentDate();
 setInterval(() => printCurrentHour(horaMinSeg,horaDialog),1000);
 
 runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPonto);
+
+// TO-DO: Fazer funcao que cria um id aleatorio para o ponto
+// TO-DO: PEsquisar sobre funcoes assincronas e sincronas para resolver o problema da localizacao no objeto js
+// TO-DO: Começar a pensar  em como mostrar o historico pelo LocalSave

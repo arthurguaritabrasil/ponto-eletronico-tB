@@ -1,5 +1,6 @@
-import { getCurrentDate, getCurrentHour } from "./timeUtils.js";
-import { saveRegisterInLocalStorage } from "./storageInLocal.js";
+import { getCurrentDate, getCurrentHour } from "../modules/timeUtils.js";
+import { saveRegisterInLocalStorage } from "../modules/storageInLocal.js";
+import { GenerateUUID } from "../modules/utils.js";
 
 
 export function runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPonto) {
@@ -26,7 +27,7 @@ function criarPonto(confirmarDialog, mensagemSucesso) {
         "data": getCurrentDate(),
         "hora": getCurrentHour(),
         "tipo": typeRegister,
-        "id": "1",
+        "id": GenerateUUID(),
         "localizacao": {
             "latitude":"",
             "longitude":"",
