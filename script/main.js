@@ -20,5 +20,4 @@ setInterval(() => printCurrentHour(horaMinSeg,horaDialog),1000);
 
 runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPonto);
 
-// TO-DO: PEsquisar sobre funcoes assincronas e sincronas para resolver o problema da localizacao no objeto js
-// TO-DO: Começar a pensar  em como mostrar o historico pelo LocalSave
+// TO-DO: mostrar no dialog o ultimo ponto registrado pelo usuario
