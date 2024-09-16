@@ -1,7 +1,7 @@
 import { getCurrentDate, getCurrentHour } from "../modules/timeUtils.js";
 import { saveRegisterInLocalStorage } from "../modules/storageInLocal.js";
 import { GenerateUUID } from "../modules/utils.js";
-
+import { getLocalization } from "../modules/localization.js";
 
 export function runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPonto) {
     const btnBaterPonto = document.getElementById("bater-ponto");
@@ -19,8 +19,10 @@ export function runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPo
     );
 }
 
-function criarPonto(confirmarDialog, mensagemSucesso) {
+async function criarPonto(confirmarDialog, mensagemSucesso) {
     let typeRegister = document.getElementById("opcoes-ponto").value;
+
+    let localization = await getLocalization(); // esperar a promise ser resolvida
 
     let ponto = {
         "nome":"Iuri Games",
@@ -29,8 +31,8 @@ function criarPonto(confirmarDialog, mensagemSucesso) {
         "tipo": typeRegister,
         "id": GenerateUUID(),
         "localizacao": {
-            "latitude":"",
-            "longitude":"",
+            "latitude":localization.latitude,
+            "longitude":localization.longitude,
         }
     };
 
