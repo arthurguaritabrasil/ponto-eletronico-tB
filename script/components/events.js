@@ -43,13 +43,21 @@ async function criarPonto(confirmarDialog, mensagemSucesso) {
     localStorage.setItem("lastTypeRegister", typeRegister);
     localStorage.setItem("lastTimeRegister", ponto.hora);
     localStorage.setItem("lastDataRegister", ponto.data);
+    
+    // TO-DO usar div e visibility para mostrar a mensagem.
 
-    console.log(ponto.data);
-
-
-    mensagemSucesso.style.display = "block";
-    setTimeout(() => {
-        confirmarDialog.close();
-        mensagemSucesso.style.display = "none";
-    },5000);
+    /* mensagemSucesso.style.display = "block";
+    timeoutID = setTimeout(() => {
+        let contador = 5;
+        intervalID = setInterval(() => {
+            mensagemSucesso.textContent = `Fechando em ${contador}`;
+            contador--;
+            if (contador === -1) {
+                confirmarDialog.close();
+                mensagemSucesso.style.display = "none";
+                clearInterval(intervalID);
+            }
+        }, 1000);
+    }, 3000);
+    mensagemSucesso.textContent = "O ponto foi criado!"; */
 }
