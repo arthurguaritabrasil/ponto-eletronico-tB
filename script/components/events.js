@@ -39,11 +39,17 @@ async function criarPonto(confirmarDialog, mensagemSucesso) {
     console.log(ponto);
 
     saveRegisterInLocalStorage(ponto);
-    localStorage.setItem("lastTypeRegister",typeRegister);
+
+    localStorage.setItem("lastTypeRegister", typeRegister);
+    localStorage.setItem("lastTimeRegister", ponto.hora);
+    localStorage.setItem("lastDataRegister", ponto.data);
+
+    console.log(ponto.data);
+
 
     mensagemSucesso.style.display = "block";
     setTimeout(() => {
         confirmarDialog.close();
         mensagemSucesso.style.display = "none";
-    },10000);
+    },5000);
 }

@@ -1,4 +1,5 @@
 import { runEventsListeners } from "./components/events.js";
+import { getLastPoint } from "./modules/storageInLocal.js";
 import { getCurrentDay, getCurrentDate, getCurrentHour, printCurrentHour } from "./modules/timeUtils.js";
 
 const diaSemana = document.getElementById("dia-semana");
@@ -9,6 +10,7 @@ const horaDialog = document.getElementById("hora-dialog");
 const confirmarDialog = document.getElementById("confirmar-dialog");
 const fecharDialogBtn = document.getElementById("fechar-dialog");
 const confirmarPonto = document.getElementById("btnConfirmar");
+const lastPoint = document.getElementById("ultimo-ponto");
 
 diaSemana.textContent = getCurrentDay();
 diaMesAno.textContent = getCurrentDate();
@@ -20,4 +22,6 @@ setInterval(() => printCurrentHour(horaMinSeg,horaDialog),1000);
 
 runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPonto);
 
-// TO-DO: mostrar no dialog o ultimo ponto registrado pelo usuario
+setInterval(() => {
+    lastPoint.textContent = getLastPoint();
+});

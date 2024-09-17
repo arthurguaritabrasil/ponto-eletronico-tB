@@ -110,7 +110,7 @@ h1 {
 /* Dialog */
 
 #confirmar-dialog {
-    padding: 70px 10px;
+    padding: 90px 50px;
     text-align: center;
     background-color: white;
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -120,7 +120,7 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 35%;
 }
 
 dialog::backdrop {
@@ -130,7 +130,6 @@ dialog::backdrop {
 
 #confirmar-dialog p {
     margin: 10px 0;
-    font-size: 1.5rem;
 }
 
 #fechar-dialog {
@@ -149,6 +148,10 @@ dialog::backdrop {
 #fechar-dialog:hover {
     background-color: #d00000;
     color: white;
+}
+
+#hora-dialog, #data-dialog {
+    font-size: 35px;
 }
 
 #opcoes-ponto {
@@ -173,7 +176,7 @@ dialog::backdrop {
 }
 
 #btnConfirmar:hover {
-    background-color: #86f078;
+    background-color: #1a5312;
     color: white;
 }
 
@@ -190,4 +193,8 @@ dialog::backdrop {
 
 #historico-button:hover {
     transform: scale(1.15);
+}
+
+#ultimo-ponto {
+    font-size: 20px;
 }

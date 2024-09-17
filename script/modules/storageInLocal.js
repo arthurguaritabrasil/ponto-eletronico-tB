@@ -12,3 +12,11 @@ export function getRegisterLocalStorage() {
     }
     return JSON.parse(registers);
 }
+
+export function getLastPoint() {
+    let lastType = localStorage.getItem("lastTypeRegister");
+    let lastDate = localStorage.getItem("lastDataRegister");
+    let lastTime = localStorage.getItem("lastTimeRegister");
+
+    return "Ultimo ponto registrado: \n" + lastType + "\nàs " + lastTime + "\nde " + lastDate;
+}
