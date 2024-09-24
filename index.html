@@ -10,6 +10,10 @@
     <header>
         <img src="./assets/logoPonto.png" alt="Logo Ponto Eletrônico" id="logoImg">
     </header>
+    <div id="alerta-registro-de-ponto" class="hidden alerta-verde">
+        <p>Ponto registrado com sucesso</p>
+        <button id="fechar-alerta">X</button>
+    </div>
     <h1>Sistema de ponto eletrônico</h1>
     <div class="data-hora">
         <p id="hora-minuto-segundo">Horário atual</p>
@@ -30,7 +34,6 @@
         </select>
         <button id="btnConfirmar">Confirmar ponto</button>
         <p id="ultimo-ponto">Não tem ultimo ponto</p>
-        <p id="mensagem-sucesso" style="display: none; color: green;">O ponto foi criado com sucesso!</p>
     </dialog>
 
     <button onclick="window.location.href='historico.html'" id="historico-button">Mostrar histórico</button>
