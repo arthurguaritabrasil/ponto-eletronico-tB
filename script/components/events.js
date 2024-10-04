@@ -2,11 +2,15 @@ import { getCurrentDate, getCurrentHour } from "../modules/timeUtils.js";
 import { saveRegisterInLocalStorage } from "../modules/storageInLocal.js";
 import { GenerateUUID } from "../modules/utils.js";
 import { getLocalization } from "../modules/localization.js";
+import { alternateDisplay } from "../modules/utils.js";
 
-export function runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPonto) {
+export function runEventsListeners() {
     const btnBaterPonto = document.getElementById("bater-ponto");
     const fecharAlertaBtn = document.getElementById("fechar-alerta");
     const alertaRegistro = document.getElementById("alerta-registro-de-ponto");
+    const confirmarDialog = document.getElementById("confirmar-dialog");
+    const fecharDialogBtn = document.getElementById("fechar-dialog");
+    const confirmarPonto = document.getElementById("btnConfirmar");
 
     btnBaterPonto.addEventListener("click", () => {
         confirmarDialog.showModal();
@@ -18,11 +22,12 @@ export function runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPo
         criarPonto(confirmarDialog, alertaRegistro);
     });
     fecharAlertaBtn.addEventListener("click", () => {
-        alertaRegistro.classList.add("hidden");
+        alternateDisplay('alerta-registro-de-ponto');
     });
 }
 
 async function criarPonto(confirmarDialog, alertaRegistro) {
+
     let typeRegister = document.getElementById("opcoes-ponto").value;
     let localization = await getLocalization(); // Espera pela localização
 
@@ -48,9 +53,9 @@ async function criarPonto(confirmarDialog, alertaRegistro) {
 
     confirmarDialog.close();
 
-    alertaRegistro.classList.remove("hidden");
+    alertaRegistro.style.display = 'block';
 
     setTimeout(() => {
-        alertaRegistro.classList.add("hidden");
+        alertaRegistro.style.display = 'none'; // ok
     },5000);
 }

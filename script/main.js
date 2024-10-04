@@ -7,9 +7,6 @@ const diaMesAno = document.getElementById("dia-mes-ano");
 const horaMinSeg = document.getElementById("hora-minuto-segundo");
 const dataDialog = document.getElementById("data-dialog");
 const horaDialog = document.getElementById("hora-dialog");
-const confirmarDialog = document.getElementById("confirmar-dialog");
-const fecharDialogBtn = document.getElementById("fechar-dialog");
-const confirmarPonto = document.getElementById("btnConfirmar");
 const lastPoint = document.getElementById("ultimo-ponto");
 
 diaSemana.textContent = getCurrentDay();
@@ -20,7 +17,7 @@ dataDialog.textContent = "Data: " + getCurrentDate();
 
 setInterval(() => printCurrentHour(horaMinSeg,horaDialog),1000);
 
-runEventsListeners(confirmarDialog, fecharDialogBtn, confirmarPonto);
+runEventsListeners();
 
 setInterval(() => {
     lastPoint.textContent = getLastPoint();
