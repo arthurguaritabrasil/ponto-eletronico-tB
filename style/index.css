@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/ds-digital');
 @import url('https://fonts.cdnfonts.com/css/clear-sans');
 
@@ -6,42 +6,86 @@
     --fonte-poppins: "Poppins", sans-serif;
     --fonte-clear: "Clear Sans", sans-serif;
     --fonte-hora: "DS-Digital", sans-serif;
+    --cor-primaria: #f44336; /* Vermelho principal */
+    --cor-secundaria: #dfdfdf; /* Cinza claro */
+    --cor-sucesso: green; /* Verde para mensagens de sucesso */
+    --cor-texto-branco: white;
+    --cor-texto-preto: black;
+    --cor-hover-vermelho: darkred;
+    --cor-hover-verde: #1a5312;
 }
 
 /* Reset CSS e Configurações Globais */
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
+/* Alerta de Registro de Ponto */
 #alerta-registro-de-ponto {
-    display: none;
+    display: none; /* Inicialmente oculto */
+    background-color: var(--cor-sucesso);
+    color: var(--cor-texto-branco);
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Classe para mostrar o alerta */
+.show-alert {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+#alerta-registro-de-ponto p {
+    margin: 0;
+}
+
+#alerta-registro-de-ponto button {
+    background-color: transparent;
+    border: none;
+    color: var(--cor-texto-branco);
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 body {
+    font-family: var(--fonte-poppins);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-preto);
+    align-items: center;
+    justify-content: flex-start; /* Manter o conteúdo no topo */
+    min-height: 100vh;
+}
+
+#page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    gap: 40px;
-    background-color: #f8f8f8;
 }
 
 /* Header */
-
 header {
     width: 100%;
     position: fixed;
     top: 0;
-    background-color: #dfdfdf;
+    background-color: var(--cor-secundaria);
     padding: 5px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 #logoImg {
     width: 70px;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 #logoImg:hover {
@@ -50,81 +94,97 @@ header {
 }
 
 /* Título Principal */
-
 h1 {
-    font-size: 60px;
+    font-size: 5.75rem;
     font-weight: 700;
-    font-family: var(--fonte-poppins);
-    color: black;
+    color: var(--cor-texto-preto);
     text-align: center;
+    margin-top:100px;
+}
+
+/* Alerta de Registro de Ponto */
+#alerta-registro-de-ponto {
+    display: none;
+    background-color: var(--cor-sucesso);
+    color: var(--cor-texto-branco);
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#alerta-registro-de-ponto p {
+    margin: 0;
+}
+
+#alerta-registro-de-ponto button {
+    background-color: transparent;
+    border: none;
+    color: var(--cor-texto-branco);
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 /* Data e Hora */
-
 .data-hora {
-    font-size: 2.5rem;
     text-align: center;
     font-family: var(--fonte-clear);
+
 }
 
 .data-hora p {
-    margin-bottom: 20px;
+    margin: 5px 0;
+    font-size: 2.5rem;
 }
 
 #hora-minuto-segundo {
-    font-size: 7rem;
+    font-size: 7.5rem;
     font-family: var(--fonte-hora);
     font-weight: 700;
 }
 
 /* Botão de Bater Ponto */
-
 #bater-ponto {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     padding: 15px 30px;
     border-radius: 10px;
     border: none;
-    background-color: red;
-    color: white;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-branco);
     font-weight: 600;
     align-self: center;
-    width: 15%;
-    transition: transform 0.3s, background-color 0.2s;
+    width: 200px;
+    transition: transform 0.3s ease, background-color 0.2s ease;
+    margin: 20px 0;
 }
 
 #bater-ponto:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor: pointer;
-    background-color: darkred;
-}
-
-/* Rodapé */
-
-#rodape {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 20px;
-    background-color: rgb(243, 124, 124);
-    color: white;
-    font-size: 1.2rem;
-    text-align: center;
+    background-color: var(--cor-hover-vermelho);
 }
 
 /* Dialog */
-
 #confirmar-dialog {
-    padding: 90px 50px;
-    text-align: center;
-    background-color: white;
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    background-color: var(--cor-texto-branco);
     border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    position: absolute;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    position: fixed; /* Adicionado para centralizar */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 35%;
+    z-index: 20; /* Garantir que esteja acima do restante */
 }
 
 dialog::backdrop {
@@ -132,36 +192,29 @@ dialog::backdrop {
     backdrop-filter: blur(2px);
 }
 
-#confirmar-dialog p {
-    margin: 10px 0;
-}
-
 #fechar-dialog {
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 5px 10px;
+    background-color: transparent;
     border: none;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
+    font-size: 1.5rem;
     cursor: pointer;
-    font-size: 1rem;
 }
 
 #fechar-dialog:hover {
-    background-color: #d00000;
-    color: white;
+    color: var(--cor-hover-vermelho);
 }
 
+/* Opções e Botões no Dialog */
 #hora-dialog, #data-dialog {
-    font-size: 35px;
+    font-size: 1.5rem;
 }
 
 #opcoes-ponto {
     padding: 10px;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-top: 20px;
@@ -171,60 +224,52 @@ dialog::backdrop {
 #btnConfirmar {
     margin-top: 20px;
     padding: 10px 20px;
-    font-size: 1.5rem;
-    background-color: white;
-    border: 1px solid black;
+    font-size: 1.2rem;
+    background-color: var(--cor-texto-branco);
     border-radius: 5px;
     cursor: pointer;
     font-weight: 700;
+    transition: background-color 0.2s ease;
 }
 
 #btnConfirmar:hover {
-    background-color: #1a5312;
-    color: white;
+    background-color: var(--cor-hover-verde);
+    color: var(--cor-texto-branco);
 }
 
+/* Botão Histórico */
 #historico-button {
     background-color: #f8f8f8;
     cursor: pointer;
     font-size: 1rem;
     font-family: var(--fonte-poppins);
     border: none;
-    width: 5%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    width: 10%;
     align-self: center;
-
+    margin-top: 30px;
 }
 
 #historico-button:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
+/* Último Ponto */
 #ultimo-ponto {
-    font-size: 20px;
+    font-size: 1.25rem;
+    margin-top: 10px;
 }
 
-.alerta-verde {
-    
-    background-color: green;
-    color: white;
-    padding: 20px;
-    position: absolute;
-    bottom: 80px;
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 30%;
-    border-radius: 5px;
-}
-
-.alerta-verde p {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.alerta-verde button {
-    background-color: transparent;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
+/* Rodapé */
+#rodape {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-branco);
+    font-size: 1.1rem;
+    text-align: center;
 }
