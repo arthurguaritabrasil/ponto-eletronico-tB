@@ -13,9 +13,19 @@
         </a>
     </header>
     <h2>Histórico de pontos recentes</h2>
-    <div id="historicoContainer">
-        <!-- o programa vai ter varias divs com cada ponto recente, como eu faço pra criar varias, sem mexer no html, uma funcao para criar e puxar as info do localStorage -->
+
+    <div id="filtro">
+        <label for="tipoFiltro">Filtrar por tipo de chegada:</label>
+        <select id="tipoFiltro">
+            <option value="todos">Todos</option>
+            <option value="chegada">Chegada</option>
+            <option value="inicio-intervalo">Início do intervalo</option>
+            <option value="fim-intervalo">Fim do intervalo</option>
+            <option value="fim-de-turno">Saída</option>
+        </select>
     </div>
+
+    <div id="historicoContainer"></div>
     <script src="./script/historico.js"></script>
 </body>
 </html>
