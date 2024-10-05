@@ -1,35 +1,36 @@
-import { getCurrentDate, getCurrentHour } from "../modules/timeUtils.js";
-import { saveRegisterInLocalStorage } from "../modules/storageInLocal.js";
-import { GenerateUUID } from "../modules/utils.js";
-import { getLocalization } from "../modules/localization.js";
-import { alternateDisplay } from "../modules/utils.js";
+import { getCurrentDate, getCurrentHour } from "../utils/timeUtils.js";
+import { saveRegisterInLocalStorage, updateLastRegister } from "../services/storageInLocal.js";
+import { GenerateUUID } from "../utils/uuidUtils.js";
+import { getLocalization } from "../services/localization.js";
+import { showAlert, closeAlert } from "./alerts.js";
+import { showDialog, closeDialog } from "./dialogs.js";
 
 export function runEventsListeners() {
     const btnBaterPonto = document.getElementById("bater-ponto");
-    const fecharAlertaBtn = document.getElementById("fechar-alerta");
-    const alertaRegistro = document.getElementById("alerta-registro-de-ponto");
     const confirmarDialog = document.getElementById("confirmar-dialog");
-    const fecharDialogBtn = document.getElementById("fechar-dialog");
     const confirmarPonto = document.getElementById("btnConfirmar");
+    const fecharAlerta = document.getElementById("fechar-alerta");
+    const alertaRegistro = document.getElementById("alerta-registro-de-ponto");
+    const btnFecharDialog = document.getElementById("fechar-dialog");
 
     btnBaterPonto.addEventListener("click", () => {
-        confirmarDialog.showModal();
-    });
-    fecharDialogBtn.addEventListener("click", () => {
-        confirmarDialog.close();
+        showDialog(confirmarDialog);
     });
     confirmarPonto.addEventListener("click", () => {
-        criarPonto(confirmarDialog, alertaRegistro);
+        criarPonto(confirmarDialog);
     });
-    fecharAlertaBtn.addEventListener("click", () => {
-        alternateDisplay('alerta-registro-de-ponto');
-    });
+    fecharAlerta.addEventListener("click", () => {
+        closeDialog(alertaRegistro);
+    })
+    btnFecharDialog.addEventListener("click", () => {
+        closeDialog(confirmarDialog);
+    })
 }
 
-async function criarPonto(confirmarDialog, alertaRegistro) {
+async function criarPonto(confirmarDialog) {
 
     let typeRegister = document.getElementById("opcoes-ponto").value;
-    let localization = await getLocalization(); // Espera pela localização
+    let localization = await getLocalization();
 
     let ponto = {
         "nome": "Iuri Games",
@@ -46,16 +47,8 @@ async function criarPonto(confirmarDialog, alertaRegistro) {
     console.log(ponto);
 
     saveRegisterInLocalStorage(ponto);
+    updateLastRegister(ponto);
 
-    localStorage.setItem("lastTypeRegister", typeRegister);
-    localStorage.setItem("lastTimeRegister", ponto.hora);
-    localStorage.setItem("lastDataRegister", ponto.data);
-
-    confirmarDialog.close();
-
-    alertaRegistro.style.display = 'block';
-
-    setTimeout(() => {
-        alertaRegistro.style.display = 'none'; // ok
-    },5000);
+    closeDialog(confirmarDialog);
+    showAlert();
 }

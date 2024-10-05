@@ -13,6 +13,12 @@ export function getRegisterLocalStorage() {
     return JSON.parse(registers);
 }
 
+export function updateLastRegister(ponto) {
+    localStorage.setItem("lastTypeRegister", ponto.tipo);
+    localStorage.setItem("lastTimeRegister", ponto.hora);
+    localStorage.setItem("lastDataRegister", ponto.data);
+}
+
 export function getLastPoint() {
     let lastType = localStorage.getItem("lastTypeRegister");
     let lastDate = localStorage.getItem("lastDataRegister");

@@ -10,11 +10,13 @@
     <header>
         <img src="./assets/logoPonto.png" alt="Logo Ponto Eletrônico" id="logoImg">
     </header>
+    
+    <dialog id="alerta-registro-de-ponto">
+        <p>Ponto registrado com sucesso!</p>
+        <button type="button" id="fechar-alerta">X</button>
+    </dialog>
+
     <main id="page">
-        <div id="alerta-registro-de-ponto">
-            <p>Ponto registrado com sucesso</p>
-            <button type="button" onclick="alternateDisplay('alerta-registro-de-ponto')" id="fechar-alerta">X</button>
-        </div>
         <h1>Sistema de ponto eletrônico</h1>
         <div class="data-hora">
             <p id="hora-minuto-segundo">Horário atual</p>
@@ -36,7 +38,6 @@
             <button id="btnConfirmar">Confirmar ponto</button>
             <p id="ultimo-ponto">Não tem ultimo ponto</p>
         </dialog>
-
         <button onclick="window.location.href='historico.html'" id="historico-button">Mostrar histórico</button>
     </main>
     <footer id="rodape">Desenvolvido por Cebola1</footer>
